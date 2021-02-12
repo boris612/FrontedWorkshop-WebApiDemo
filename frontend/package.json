@@ -1,0 +1,26 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "mitt": "^2.1.0",
+    "primeflex": "^2.0.0",
+    "primeicons": "^4.1.0",
+    "primevue": "^3.2.4",
+    "vue": "^3.0.5",
+    "vue-router": "^4.0.3",
+    "@vuelidate/core": "^2.0.0-alpha.12",
+    "@vuelidate/validators": "^2.0.0-alpha.10"    
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.1.4",
+    "@vue/compiler-sfc": "^3.0.5",   
+    "vite": "^2.0.0-beta.69" ,
+    "sass" : "1.32.7"
+  }
+}
