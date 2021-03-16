@@ -6,12 +6,14 @@ using Backend.Core.Queries.Generic;
 using Backend.Core.Util;
 using Backend.WebApi.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace Backend.WebApi.Controllers
 {
+  [Authorize]
   public abstract class CrudController<T> : BaseApiController where T: IHasIntegerId
   {
 

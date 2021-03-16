@@ -15,11 +15,11 @@ const routes = [
     { name: 'home', path: '/', component: HomePage },    
     { path: '/hello', component: HelloWorld },
     { path: '/towns', component: Towns, beforeEnter : checkLogin },
-    { path: '/schools', component: Schools },
-    { path: '/students', component: Students },
+    { path: '/schools', component: Schools, beforeEnter : checkLogin },
+    { path: '/students', component: Students, beforeEnter : checkLogin },
     { path: '/users', component: Users, beforeEnter : checkLogin },
-    { path: '/workshops', component: Workshops },
-    { name: 'workshop-details', path: '/workshop/:id', component : Workshop},
+    { path: '/workshops', component: Workshops, beforeEnter : checkLogin },
+    { name: 'workshop-details', path: '/workshop/:id', component : Workshop, beforeEnter : checkLogin},
     { name: 'login', path: '/login', component: Login }     
   ]
 

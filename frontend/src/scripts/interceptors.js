@@ -20,17 +20,20 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
     response => response,
     error => {        
-        if (error.response.status === 401) {            
+        const originalRequest = error.config;
+        if (error.response.status === 401 && !originalRequest._retry) {     
             if (error.response.headers['token-expired'] === "true") {                          
                 if (getJwtToken() && getRefreshToken()) {
                     const loginService = new WebService();
-                    loginService.refreshToken()
-                                .then((token) => {
-                                    debugger;
-                                    const config = error.config;
-                                    config.headers['Authorization'] = `Bearer ${token}`;                
-                                    return axios.request(config);
-                                })                                                 
+                    return loginService.refreshToken()
+                                        .then((token) => {
+                                            debugger;
+                                            if (token !== undefined) {
+                                                const config = error.config;
+                                                config.headers['Authorization'] = `Bearer ${token}`;                
+                                                return axios.request(config);
+                                            }
+                                        })                                                 
                 }              
             }
             else {  

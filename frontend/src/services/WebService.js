@@ -57,17 +57,17 @@ export default class WebService {
                     })                    
     }  
     
-    refreshToken() {
-        debugger;
+    refreshToken() {        
         const model = { "token" : getJwtToken(), 
                         "refreshToken" : getRefreshToken()};
         const url = `${Settings.apiUrl}/auth/refresh_token`;        
         return axios.post(url, model) 
-                    .then(res => {
-                        debugger;
-                        const tokens = res.data;
-                        storeTokens(tokens);
-                        return tokens.token;
+                    .then(res => {                        
+                        if (res !== undefined) {
+                            const tokens = res.data;
+                            storeTokens(tokens);
+                            return tokens.token;
+                        }
                     });                                             
     }    
 }
