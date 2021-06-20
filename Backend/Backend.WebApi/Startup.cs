@@ -99,6 +99,7 @@ namespace Backend.WebApi
       {              
         c.RoutePrefix = "docs";
         c.DocumentTitle = "FrontEd Workshop Demo WebAPI";
+        c.SwaggerEndpoint("../swagger/v1/swagger.json", c.DocumentTitle);
       });
    
       
